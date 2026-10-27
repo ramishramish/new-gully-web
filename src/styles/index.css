@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --vintage-cream: #FBF8F2;
+    --vintage-ivory: #F4ECE1;
+    --vintage-brown: #281A14;
+    --vintage-gold: #C49C4C;
+    --vintage-burgundy: #731C28;
+    --vintage-olive: #4D5D46;
+    --vintage-charcoal: #171413;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: var(--vintage-cream);
+    color: var(--vintage-charcoal);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-display {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    letter-spacing: 0.05em;
+  }
+
+  .font-editorial {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Vintage Paper & Grain subtle texture */
+.vintage-grain {
+  background-image: radial-gradient(rgba(40, 26, 20, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Vintage double border */
+.vintage-border-double {
+  border: 3px double #C49C4C;
+}
+
+.vintage-border-subtle {
+  border: 1px solid #E4DACB;
+}
+
+/* Vintage button styles */
+.btn-vintage-primary {
+  @apply relative inline-flex items-center justify-center px-6 py-3 text-xs md:text-sm font-semibold tracking-widest uppercase transition-all duration-300;
+  background-color: #281A14;
+  color: #FBF8F2;
+  border: 1px solid #281A14;
+}
+
+.btn-vintage-primary:hover {
+  background-color: #731C28;
+  border-color: #731C28;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(115, 28, 40, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-vintage-secondary {
+  @apply relative inline-flex items-center justify-center px-6 py-3 text-xs md:text-sm font-semibold tracking-widest uppercase transition-all duration-300;
+  background-color: transparent;
+  color: #281A14;
+  border: 1px solid #281A14;
+}
+
+.btn-vintage-secondary:hover {
+  background-color: #281A14;
+  color: #FBF8F2;
+  box-shadow: 0 4px 14px rgba(40, 26, 20, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-vintage-gold {
+  @apply relative inline-flex items-center justify-center px-6 py-3 text-xs md:text-sm font-semibold tracking-widest uppercase transition-all duration-300;
+  background-color: #C49C4C;
+  color: #171413;
+  border: 1px solid #9E7A31;
+}
+
+.btn-vintage-gold:hover {
+  background-color: #D6AB54;
+  box-shadow: 0 4px 16px rgba(196, 156, 76, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Custom Vintage Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4ECE1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C49C4C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9E7A31;
+}
+
+/* Continuous Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    overflow-x: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
